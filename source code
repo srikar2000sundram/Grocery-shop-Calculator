@@ -1,0 +1,27 @@
+# Write a python program which will keep adding the stream of numbers inputted by the user .
+#  The adding stops as soon as a user press the quit(q) key on the keyboard .
+
+from prettytable import PrettyTable
+
+table = PrettyTable(['Item Name', 'Item Price'])
+
+sum = 0
+while(True):
+
+    name = input('Enter Item name:')
+    userInput = input("Enter the Item Price or press q to quit:\n")
+    if(userInput != 'q'):
+        sum = sum + float(userInput)
+        print(f"Your order total so far is {sum}")
+        table.add_row([name, sum])
+        continue
+    
+    else:
+     
+      print(f"Your Bill for Total Item is {sum}. Thanks for shopping with us.")
+      break
+
+table.add_row(['TOTAL', sum])
+print(table)
+print('\nThanks for shopping with us :)')
+print('Your total bill amount is ', sum , '/-')
